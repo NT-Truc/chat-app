@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
 
         socket.broadcast
             .to(room)
-            .emit("message", utils.genergateMessage(`${username} has come!`));
+            .emit("message", utils.genergateMessage("Admin", `${username} has joined the group!`));
     });
 
     //socket.emit
@@ -67,10 +67,10 @@ io.on("connection", (socket) => {
                 room: user.room,
                 users: getUsersInRoom(user.room),
             });
-            io.emit("message", utils.genergateMessage("A user has left!"));
+            io.to(user.room).emit("message", utils.genergateMessage("Admin", user.username + " has left the group!"));
+
         }
         console.log(user);
-
     });
 });
 

@@ -30,7 +30,7 @@ socket.on("message", (message_info) => {
         message,
         created_at: moment(created_at).format("hh:mm A"),
         username: _username,
-        right: isMyMessage ? "right" : "",
+        right: isMyMessage ? "right" : "left",
     });
     //console.log()
 
